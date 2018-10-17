@@ -7,6 +7,7 @@ app.controller('myCtrl',function($scope,$http){
 var key = "5E7D86A4D8230D3782ACBB10578300C1";
 var userID = "";
 
+
 $(document).ready(function() {
     $("#userResults").hide();
     $("#friendResults").hide();
@@ -41,7 +42,8 @@ $(document).ready(function() {
 
 
 function getFriends(id) {
-    
+    var mutualFriendsArray = [];
+    var friendObjectList = [];
      $("#progress").show();
      $(".progress-bar").html("");
 
@@ -54,8 +56,9 @@ function getFriends(id) {
     var friendsFriends = [];
     var friends = [];
     var privateFriends = [];
-    var friendObjectList = [];
+    
     console.log(friendObjectList);
+    
     
     $(".progress-bar").animate({width: "10%"}, 1000);
 
@@ -126,6 +129,10 @@ function getFriends(id) {
              
             curCall += 1;
         }
+        
+        friends.pop();
+        
+        console.log(friends);
         var atTimeList = friendObjectList;
         console.log("Fake: ");
         console.log(atTimeList);
@@ -153,7 +160,7 @@ function getFriends(id) {
                     
                     $.each(friends, function(i, friend) {
                         friendID = friend['steamid'];
-                        
+                        var theIDIWant = friendID;
                         everything += '<div class="friend shadow mb-2">'
                         + '<div class="row align-items-center justify-content-center">'
                         + '<div class="col-sm-2 text-center" id="avatar">img' + friendID + '</div>'
@@ -170,15 +177,19 @@ function getFriends(id) {
                             var commonFriends = 0;
                             $.each(friends, function(i, friend) {
                                 var friendCompID = friend['steamid'];
-
+                                
+                                
                                 $.each(friendsFriends[friendID], function(k, friend2) {
                                     var friend2CompID = friend2['steamid'];
 
                                     if (friend2CompID == friendCompID) {
+                                        var friendAndMutualFriend = [theIDIWant, friendCompID];
+                                        mutualFriendsArray.push(friendAndMutualFriend);
                                         commonFriends++;
                                         return false; //break
                                     }
                                 });
+                                
                             });
 
                             if (commonFriends > 0) {
@@ -253,8 +264,8 @@ function getFriends(id) {
                     var copyOfCombinedList =[];
                     
                     var everythingSorted = "";
-                    for (var w = 1; w < combinedList.length; w++) {
-                        copyOfCombinedList.push(combinedList[w][0].replace(/badge-light"/g, 'badge-light" onclick="showFriends()" style="cursor: pointer;"'));
+                    for (var w = 0; w < combinedList.length; w++) {
+                        copyOfCombinedList.push(combinedList[w][0].replace(/badge-light"/g, 'badge-light" onclick="showFriends(mutualFriendsArray, friendObjectList)" style="cursor: pointer;"'));
                         combinedList[w][0] = copyOfCombinedList[w-1];
                         everythingSorted += combinedList[w][0];
                     }
@@ -265,6 +276,7 @@ function getFriends(id) {
                     $("#displayUser").html(userInfo);
                     $("#userResults").show();
                     $("#friendResults").show();
+                    
                     console.log("Operation complete.");
                 }
             }, function(jqXHR, textStatus, errorThrown) {
@@ -303,6 +315,8 @@ function getFriends(id) {
                                     var friend2CompID = friend2['steamid'];
 
                                     if (friend2CompID == friendCompID) {
+                                        var friendAndMutualFriend = [theIDIWant, friendCompID];
+                                        mutualFriendsArray.push(friendAndMutualFriend);
                                         commonFriends++;
                                         return false; //break
                                     }
@@ -384,8 +398,8 @@ function getFriends(id) {
                      var copyOfCombinedList =[];
                     
                     var everythingSorted = "";
-                    for (var w = 1; w < combinedList.length; w++) {
-                        copyOfCombinedList.push(combinedList[w][0].replace(/badge-light"/g, 'badge-light" onclick="showFriends()" style="cursor: pointer;"'));
+                    for (var w = 0; w < combinedList.length; w++) {
+                        copyOfCombinedList.push(combinedList[w][0].replace(/badge-light"/g, 'badge-light" onclick="showFriends(mutualFriendsArray, friendObjectList)" style="cursor: pointer;"'));
                         combinedList[w][0] = copyOfCombinedList[w-1];
                         everythingSorted += combinedList[w][0];
                     }
