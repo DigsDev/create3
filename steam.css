@@ -1,0 +1,135 @@
+/* BODY */
+
+.User-list {
+  list-style: none;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    min-width: 340px;
+}
+
+body {
+    /*background-image: url("img/bg.jpg");*/
+    background-color: #262628;
+    margin-bottom: 75px;
+    /* Margin bottom by footer height */
+}
+
+/* HEADER */
+
+header {
+    display: block;
+    background-color: #171A21;
+    color: white;
+}
+
+#site-header {
+    background-color: #171A21;
+}
+
+#page-header {
+    background-color: #2D384A;
+    /*background-image: url("img/header_bg.jpg");*/
+}
+
+
+/* CONTENT */
+
+#userForm {
+    color: white;
+    width: 80%;
+}
+
+#userField {
+    width: 100%;
+}
+
+
+#displayUser .friend {
+    max-width: 65%;
+}
+
+
+#main {
+    color: white;
+    background-color: #1C1C1D;
+}
+
+#main a {
+    color: white;
+}
+
+#main a:visited {
+    color: white;
+}
+
+hr {
+    color: #E1E1E1;
+    border-color: #E1E1E1;
+    width: 90%;
+}
+
+
+/* FRIENDS */
+
+#results li {
+    list-style-type: none;
+}
+
+.friend {
+    display: block;
+    border: 2px solid #DDDDDD;
+    background-color: #2D384A;
+    border-radius: 1px;
+    padding: 16px;
+    margin: auto;
+    max-width: 50%;
+}
+
+#gamerTag {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    resize: horizontal;
+}
+
+
+/* FOOTER */
+
+footer {
+    display: block;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    /* Set the fixed height of the footer here */
+    line-height: 60px;
+    /* Vertically center the text there */
+    background-color: #171A21;
+    color: white;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer a:visited {
+    color: white;
+}
+
+
+
+/* LOADER */
+
+.progress.active .progress-bar {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
+#progress {
+    max-width: 80%;
+}

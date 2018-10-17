@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Creative Project 2</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.js"></script>
+ 
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="steam.css">
+</head>
+
+<body>
+  <header class="pt-2" id="site-header">
+    <div class="container text-center pt-2 pb-1" id="site-header">
+      <p>Creative Project 2</p>
+    </div>
+  </header>
+
+  <header id="page-header">
+    <div class="container text-center pt-5 pb-5" id="page-header">
+      <h1>Steam Network Analyzer</h1>
+    </div>
+  </header>
+
+  <div class="container shadow-lg pt-5 mb-5" id="main">
+    <div class="container text-center" id="userForm">
+      <form>
+        <h5>Enter a Steam User Unique URL:</h5>
+        <h5><input class="form-control" placeholder="ex: https://steamcommunity.com/..." aria-label="Username" type="text" id="userField" value=""></h5>
+        <input class="btn btn-light mt-2 font-weight-bold" id="userButton" type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div class="container mt-5 pb-5 text-center" id="suggestions">
+      <h5>Don't know your URL? Try one of ours!</h5>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" id="robin">Robin</button>
+        <button type="button" class="btn btn-light" id="ronSwanson">Ron Swanson's Mustache</button>
+        <button type="button" class="btn btn-secondary" id="st4ck">St4ck</button>
+      </div>
+    </div>
+
+    <div class="container pb-5" id="progress">
+      <div class="progress" id="p-bar">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-2 mb-5" id="userResults">
+      <hr>
+      <h5>Selected User:</h5>
+      <div id="displayUser"></div>
+    </div>
+
+    <div ng-app='myApp' ng-controller='myCtrl' class="container text-center mt-5 pb-5" id="friendResults">
+      <hr>
+      <h5>User's Network:</h5>
+      <div id="friendList"></div>
+      
+      <ul class='User-list'>
+        <li ng-repeat='user in users'>
+          <avatar user='user' />
+          <p>bruh</p>
+        </li>
+      </ul>
+    </div></div>
+    
+<!--
+ <div class="container text-center mt-5 pb-5" id="friendResults">
+      <hr>
+      <h5>User's Network:</h5>
+      <div id="friendList"></div>
+    </div>
+  </div>
+-->
+
+  <footer class="footer">
+    <div class="container text-center">
+      <span id="footerText">© 2018 by Jace Chipman and Clark Brown  |  <a href="https://steampowered.com/" target="_blank">Powered by Steam™</a>  |  <a href="privacy.html">Privacy Policy</a></span>
+    </div>
+  </footer>
+
+  <!-- BOOTSTRAP -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="steam.js"></script>
+</body>
+
+</html>
