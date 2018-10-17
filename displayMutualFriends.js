@@ -1,0 +1,3 @@
+function showFriends() {
+    alert("FRIENDS");
+}

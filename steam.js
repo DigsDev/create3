@@ -145,7 +145,7 @@ function getFriends(id) {
                 dataType: "json"
             }).then(function(parsed_json2) {
                 friendsFriends[friendID] = parsed_json2['friendslist']['friends'];
-
+//___________________________________________________________________________________________________________________________________
                 if (i == friends.length - 1) {
                     var everything = "";
                     
@@ -250,11 +250,12 @@ function getFriends(id) {
                     console.log("sorted: " + combinedList);
                     
                     
-                    var copyOfCombinedList = combinedList.replace(/badge-light"/g, 'badge-light" onclick=showFriends()');
-                    combinedList = copyOfCombinedList;
+                    var copyOfCombinedList =[];
                     
                     var everythingSorted = "";
                     for (var w = 1; w < combinedList.length; w++) {
+                        copyOfCombinedList.push(combinedList[w][0].replace(/badge-light"/g, 'badge-light" onclick="showFriends()" style="cursor: pointer;"'));
+                        combinedList[w][0] = copyOfCombinedList[w-1];
                         everythingSorted += combinedList[w][0];
                     }
                     $(".progress-bar").animate({width: "100%"}, 200);
@@ -271,6 +272,8 @@ function getFriends(id) {
                 privateFriends.push(friendID);
                 friendsFriends[friendID] = ["private"];
 
+//___________________________________________________________________________________________________________________________________
+
                 if (i == friends.length - 1) {
                     var everything = "";
                     
@@ -377,11 +380,13 @@ function getFriends(id) {
                     
                     console.log("sorted: " + combinedList);
                     
-                     var copyOfCombinedList = combinedList.replace(/badge-light"/g, 'badge-light" onclick=showFriends()');
-                    combinedList = copyOfCombinedList;
+                    
+                     var copyOfCombinedList =[];
                     
                     var everythingSorted = "";
                     for (var w = 1; w < combinedList.length; w++) {
+                        copyOfCombinedList.push(combinedList[w][0].replace(/badge-light"/g, 'badge-light" onclick="showFriends()" style="cursor: pointer;"'));
+                        combinedList[w][0] = copyOfCombinedList[w-1];
                         everythingSorted += combinedList[w][0];
                     }
                     $(".progress-bar").animate({width: "100%"}, 200);
@@ -398,6 +403,9 @@ function getFriends(id) {
     });
 
 } // end getFriends(id)
+
+
+
 
 
 // Returns number of friends that list1 and list2 have in common.
